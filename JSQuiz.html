@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #002244;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003366;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="batik.png" alt="Logo Batik">
+        <nav>
+            <a href="Batik.html">BERANDA</a>
+            <a href="Miniclass.html">MINI CLASS</a>
+            <a href="Kuis.html">KUIS</a>
+            <a href="Tutorial.html">TUTORIAL</a>
+        </nav>
+    </header>
+    <div class="quiz-container">
+        <h1>Kuis JS</h1>
+        <form id="jsQuiz">
+            <div class="question">
+                <p>1. Bagaimana mendeklarasikan variabel di JavaScript?</p>
+                <input type="radio" name="q1" value="salah"> var<br>
+                <input type="radio" name="q1" value="benar"> variable<br>
+                <input type="radio" name="q1" value="salah"> letvar</br>
+            </div>
+            <div class="question">
+                <p>2. Apa fungsi dari console.log()?</p>
+                <input type="radio" name="q2" value="benar">Menampilkan output di konsol<br>
+                <input type="radio" name="q2" value="salah">Mengahapus data<br>
+                <input type="radio" name="q2" value="salah">Membuka debugger<br>
+            </div>
+            <div class="question">
+                <p>3. Apa simbol untuk operator penjumlahan?</p>
+                <input type="radio" name="q3" value="salah"> - <br>
+                <input type="radio" name="q3" value="salah"> = <br>
+                <input type="radio" name="q3" value="benar"> + <br>
+            </div>
+            <div class="question">
+                <p>4. Metode apa yang digunakan untuk mengubah string menjadi angka?</p>
+                <input type="radio" name="q4" value="benar">parseInt()<br>
+                <input type="radio" name="q4" value="salah">toString()<br>
+                <input type="radio" name="q4" value="salah">concat()<br>
+            </div>
+            <div class="question">
+                <p>5. Apa hasil dari typeof "Hello"?</p>
+                <input type="radio" name="q5" value="benar"> string<br>
+                <input type="radio" name="q5" value="salah"> number<br>
+                <input type="radio" name="q5" value="salah"> boolean<br>
+            </div>
+            <div class="result" id="result"></div>
+            <button type="button" onclick="checkAnswers()">Periksa Jawaban</button>
+        </form>
+    </div>
+    <footer>
+        COPYRIGHT 2024 BATIK ACADEMY
+    </footer>
+    <script>
+        function checkAnswers() {
+            const form = document.getElementById("jsQuiz");
+            const questions = form.querySelectorAll(".question");
+            let score = 0;
+
+            questions.forEach((q, index) => {
+                const selected = q.querySelector("input[type='radio']:checked");
+                if (selected && selected.value === "benar") {
+                    score++;
+                }
+            });
+
+            const result = document.getElementById("result");
+            result.textContent = `Skor Anda: ${score} dari ${questions.length}`;
+        }
+    </script>
+</body>
+</html>

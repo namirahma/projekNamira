@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #002244;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003366;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="batik.png" alt="Logo Batik">
+        <nav>
+            <a href="Batik.html">BERANDA</a>
+            <a href="Miniclass.html">MINI CLASS</a>
+            <a href="Kuis.html">KUIS</a>
+            <a href="Tutorial.html">TUTORIAL</a>
+        </nav>
+    </header>
+    <div class="quiz-container">
+        <h1>Kuis CSS</h1>
+        <form id="cssQuiz">
+            <div class="question">
+                <p>1. Apa fungsi dari properti color?</p>
+                <input type="radio" name="q1" value="salah"> Mengatur warna latar belakang<br>
+                <input type="radio" name="q1" value="benar"> Mengatur warna teks<br>
+                <input type="radio" name="q1" value="salah"> Mengatur warna border<br>
+            </div>
+            <div class="question">
+                <p>2. Bagaimana cara mengatur ukuran teks?</p>
+                <input type="radio" name="q2" value="benar">font-size<br>
+                <input type="radio" name="q2" value="salah">text-size<br>
+                <input type="radio" name="q2" value="salah">size<br>
+            </div>
+            <div class="question">
+                <p>3. Properti apa yang digunakan untuk mengatur margin luar elemen?</p>
+                <input type="radio" name="q3" value="salah"> padding<br>
+                <input type="radio" name="q3" value="salah"> border<br>
+                <input type="radio" name="q3" value="benar"> margin<br>
+            </div>
+            <div class="question">
+                <p>4. Bagaimana membuat teks menjadi tebal?</p>
+                <input type="radio" name="q4" value="benar">font-weight: bold;<br>
+                <input type="radio" name="q4" value="salah">text-style: bold;<br>
+                <input type="radio" name="q4" value="salah">font-style: bold;<br>
+            </div>
+            <div class="question">
+                <p>5. Apa yang dimaksud dengan z-index?</p>
+                <input type="radio" name="q5" value="benar"> Mengatur tumpang tindih elemen <br>
+                <input type="radio" name="q5" value="salah"> Mengatur posisi horizontal elemen<br>
+                <input type="radio" name="q5" value="salah"> Mengatur warna elemen<br>
+            </div>
+            <div class="result" id="result"></div>
+            <button type="button" onclick="checkAnswers()">Periksa Jawaban</button>
+        </form>
+    </div>
+    <footer>
+        COPYRIGHT 2024 BATIK ACADEMY
+    </footer>
+    <script>
+        function checkAnswers() {
+            const form = document.getElementById("cssQuiz");
+            const questions = form.querySelectorAll(".question");
+            let score = 0;
+
+            questions.forEach((q, index) => {
+                const selected = q.querySelector("input[type='radio']:checked");
+                if (selected && selected.value === "benar") {
+                    score++;
+                }
+            });
+
+            const result = document.getElementById("result");
+            result.textContent = `Skor Anda: ${score} dari ${questions.length}`;
+        }
+    </script>
+</body>
+</html>
